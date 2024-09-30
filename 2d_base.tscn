@@ -3,6 +3,9 @@
 [node name="2D Base" type="Node2D"]
 
 [node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 176.0
+offset_top = 322.0
+offset_right = 330.0
+offset_bottom = 350.0
+scale = Vector2(0.881089, 1.0184)
 text = "Hello Godot World!"
