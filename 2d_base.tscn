@@ -1,6 +1,45 @@
-[gd_scene format=3 uid="uid://ddithl12m04p1"]
+[gd_scene load_steps=7 format=3 uid="uid://ddithl12m04p1"]
+
+[ext_resource type="Texture2D" uid="uid://jjdyucv5wuk8" path="res://assets/Cat Sprite Sheet.png" id="1_qi0gv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikk76"]
+atlas = ExtResource("1_qi0gv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqpk6"]
+atlas = ExtResource("1_qi0gv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yd5ye"]
+atlas = ExtResource("1_qi0gv")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3gxe"]
+atlas = ExtResource("1_qi0gv")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_58umo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ikk76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqpk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yd5ye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3gxe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="2D Base" type="Node2D"]
+metadata/_edit_vertical_guides_ = [208.0]
 
 [node name="Label" type="Label" parent="."]
 offset_left = 176.0
@@ -9,3 +48,16 @@ offset_right = 330.0
 offset_bottom = 350.0
 scale = Vector2(0.881089, 1.0184)
 text = "Hello Godot World!"
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(71, 78)
+scale = Vector2(8.6, 7.32)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(17.5581, 10.3825)
+scale = Vector2(1.27906, 0.937205)
+sprite_frames = SubResource("SpriteFrames_58umo")
+autoplay = "default"
+frame_progress = 0.965915
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
