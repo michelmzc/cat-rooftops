@@ -181,10 +181,10 @@ animations = [{
 metadata/_edit_vertical_guides_ = [208.0]
 
 [node name="Label" type="Label" parent="."]
-offset_left = 176.0
-offset_top = 322.0
-offset_right = 330.0
-offset_bottom = 350.0
+offset_left = 296.0
+offset_top = 19.0
+offset_right = 450.0
+offset_bottom = 47.0
 scale = Vector2(0.881089, 1.0184)
 text = "Hello Godot World!"
 
@@ -194,8 +194,8 @@ scale = Vector2(8.6, 7.32)
 script = ExtResource("1_144t2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CatMainCharacter"]
-position = Vector2(-4.53488, -6.28415)
-scale = Vector2(0.228924, 0.268454)
+position = Vector2(-0.784879, -1.87441)
+scale = Vector2(0.463299, 0.544063)
 sprite_frames = SubResource("SpriteFrames_58umo")
 animation = &"standing left"
 autoplay = "standing center right"
