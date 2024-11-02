@@ -1,7 +1,24 @@
-[gd_scene load_steps=16 format=3 uid="uid://ddithl12m04p1"]
+[gd_scene load_steps=25 format=3 uid="uid://ddithl12m04p1"]
 
+[ext_resource type="Script" path="res://cat_main_character.gd" id="1_144t2"]
 [ext_resource type="Texture2D" uid="uid://jjdyucv5wuk8" path="res://assets/Cat Sprite Sheet.png" id="1_qi0gv"]
 [ext_resource type="Texture2D" uid="uid://q4l7r653t33t" path="res://assets/Cat Sprite Sheet Inverted.png" id="2_gbsqu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76v85"]
+atlas = ExtResource("2_gbsqu")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy3t7"]
+atlas = ExtResource("2_gbsqu")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nb4ob"]
+atlas = ExtResource("2_gbsqu")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3iiwx"]
+atlas = ExtResource("2_gbsqu")
+region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ikk76"]
 atlas = ExtResource("1_qi0gv")
@@ -18,6 +35,22 @@ region = Rect2(64, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_k3gxe"]
 atlas = ExtResource("1_qi0gv")
 region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csg18"]
+atlas = ExtResource("2_gbsqu")
+region = Rect2(224, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yr6o"]
+atlas = ExtResource("2_gbsqu")
+region = Rect2(192, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5takc"]
+atlas = ExtResource("2_gbsqu")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lnac"]
+atlas = ExtResource("2_gbsqu")
+region = Rect2(128, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pevpf"]
 atlas = ExtResource("1_qi0gv")
@@ -55,6 +88,23 @@ region = Rect2(128, 160, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_76v85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qy3t7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nb4ob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3iiwx")
+}],
+"loop": true,
+"name": &"standing center left",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ikk76")
 }, {
 "duration": 1.0,
@@ -67,8 +117,25 @@ animations = [{
 "texture": SubResource("AtlasTexture_k3gxe")
 }],
 "loop": true,
-"name": &"standing center - tail wags",
-"speed": 5.0
+"name": &"standing center right",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csg18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8yr6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5takc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lnac")
+}],
+"loop": true,
+"name": &"standing left",
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -84,8 +151,8 @@ animations = [{
 "texture": SubResource("AtlasTexture_2xovi")
 }],
 "loop": true,
-"name": &"standing to the right - tail wags",
-"speed": 5.0
+"name": &"standing right",
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -124,13 +191,15 @@ text = "Hello Godot World!"
 [node name="CatMainCharacter" type="CharacterBody2D" parent="."]
 position = Vector2(71, 78)
 scale = Vector2(8.6, 7.32)
+script = ExtResource("1_144t2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CatMainCharacter"]
-position = Vector2(-4.47674, -6.20783)
+position = Vector2(-4.53488, -6.28415)
 scale = Vector2(0.228924, 0.268454)
 sprite_frames = SubResource("SpriteFrames_58umo")
-animation = &"standing center - tail wags"
-autoplay = "standing center - tail wags"
-frame_progress = 0.838319
+animation = &"standing left"
+autoplay = "standing center right"
+frame = 2
+frame_progress = 0.587707
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CatMainCharacter"]
