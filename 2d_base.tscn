@@ -163,7 +163,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walking left",
-"speed": 3.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -174,7 +174,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walking right",
-"speed": 3.0
+"speed": 4.0
 }]
 
 [node name="2D Base" type="Node2D"]
@@ -197,9 +197,7 @@ script = ExtResource("1_144t2")
 position = Vector2(-0.784879, -1.87441)
 scale = Vector2(0.463299, 0.544063)
 sprite_frames = SubResource("SpriteFrames_58umo")
-animation = &"standing left"
+animation = &"walking right"
 autoplay = "standing center right"
-frame = 2
-frame_progress = 0.587707
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CatMainCharacter"]
