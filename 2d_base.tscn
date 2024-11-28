@@ -194,10 +194,19 @@ scale = Vector2(8.6, 7.32)
 script = ExtResource("1_144t2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CatMainCharacter"]
-position = Vector2(-0.784879, -1.87441)
+position = Vector2(2.90698, 24.3169)
 scale = Vector2(0.463299, 0.544063)
 sprite_frames = SubResource("SpriteFrames_58umo")
 animation = &"walking right"
 autoplay = "standing center right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CatMainCharacter"]
+
+[node name="ButtonJump" type="Button" parent="."]
+offset_left = 272.0
+offset_top = 344.0
+offset_right = 440.0
+offset_bottom = 432.0
+text = "Elevate Cat"
+
+[connection signal="pressed" from="ButtonJump" to="CatMainCharacter" method="_on_button_jump_pressed"]
