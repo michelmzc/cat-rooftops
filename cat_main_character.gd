@@ -39,11 +39,24 @@ func _process(delta):
 	
 	position += velocity * delta
 
+# conexión de señal con botón
 func _on_button_jump_pressed() -> void:
 	velocity.y = jump_velocity
 	position += velocity
 
+# función integrada de un nodo. El motor llama automáticamente cuando un nodo está completamente instanciado.
+func _ready():
+	# la función get_node() comprueba los hijos del nodo y los obtiene por su nombre.
+	# referencia al Timer. Referencia al nodo relativo al actual
+	var timer = get_node("Timer")
+	# en señal timeout ejecutamos funcion _on_timer_timeout
+	# Por convención, en GDScript nombramos esos métodos callback como "_on_nombre_nodo_nombre_señal"
+	timer.timeout.connect(_on_timer_timeout)
 	
+# cuando se ejecute la función, cambiara su visibilidad
+func _on_timer_timeout():
+	visible = not visible
+
 """
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
