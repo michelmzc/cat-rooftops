@@ -43,7 +43,8 @@ func _process(delta):
 func _on_button_jump_pressed() -> void:
 	velocity.y = jump_velocity
 	position += velocity
-
+"""
+# Señales
 # función integrada de un nodo. El motor llama automáticamente cuando un nodo está completamente instanciado.
 func _ready():
 	# la función get_node() comprueba los hijos del nodo y los obtiene por su nombre.
@@ -56,10 +57,6 @@ func _ready():
 # cuando se ejecute la función, cambiara su visibilidad
 func _on_timer_timeout():
 	visible = not visible
-
-"""
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
 
 
 func _physics_process(delta):
