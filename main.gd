@@ -27,7 +27,7 @@ func _on_mob_timer_timeout():
 	var mob_spawn_location = $MobPath/MobSpawnLocation 
 	mob_spawn_location.progress_ratio = randf() 
 	
-	# establecer la posición del mob recpecto a la ubicación aleatoria 
+	# establecer la posición del mob repecto a la ubicación aleatoria 
 	mob.position = mob_spawn_location.position
 	
 	# establecer la dirección del mob perpendicular a la dirección del Path
@@ -45,4 +45,5 @@ func _on_mob_timer_timeout():
 	add_child(mob)	 
 	
 func _ready():
-	new_game()
+	pass
+	#new_game()
