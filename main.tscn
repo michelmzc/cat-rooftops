@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://f5eik36mybc0"]
+
+[node name="main" type="Node2D"]
+metadata/_edit_vertical_guides_ = [360.0]
+
+[node name="game_world" type="Node" parent="."]
+
+[node name="gui" type="Node" parent="."]
