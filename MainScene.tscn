@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://o7tejbrnnw26"]
+
+[ext_resource type="PackedScene" uid="uid://b2ept4566kn6j" path="res://cat_main_character/Player.tscn" id="1_d7ktt"]
+[ext_resource type="Script" path="res://platform_manager.gd" id="2_i7ep1"]
+
+[node name="MainScene" type="Node"]
+
+[node name="GameWorld" type="Node2D" parent="."]
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Player" parent="." instance=ExtResource("1_d7ktt")]
+position = Vector2(72, 256)
+
+[node name="GroundTiles" type="TileMapLayer" parent="."]
+
+[node name="Platform" type="Node" parent="."]
+script = ExtResource("2_i7ep1")

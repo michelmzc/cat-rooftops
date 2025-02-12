@@ -1,18 +1,11 @@
 extends CharacterBody2D
 
-@export var jump_force: float = -400 
-@export var gravity: float = 900
+@export var speed = 150 #velocidad a la que se mueve el Character, pixeles/segundos
+@export var jump_force: float = -450 
+@export var gravity: float = 1000
 
-func _init():
-	print("Hello Godot World")
+@onready var _animated_sprite = $AnimatedSprite2D # inclución de las animaciones
 
-#Programación de las animaciones
-@onready var _animated_sprite = $AnimatedSprite2D 
-
-#velocidad a la que se mueve el Character
-#velocidad de movimiento expresado en pixels por segundo
-var speed = 200
-var jump_velocity = -10
 """
 Godot llamará a la función _process en cada cuadro y le pasará un argumento llamado delta, 
  este es el tiempo transcurrido desde el último frame. Se utiliza para que la velocidad sea
@@ -22,26 +15,19 @@ Observe cómo _process(), al igual que _init(), comienzan con un guión bajo al 
 Por convención, las funciones virtuales de Godot, es decir, las funciones integradas 
 que puede anular para comunicarse con el motor, comienzan con un guión bajo.
 """
-func _process(delta):
-	# correr hacia la derecha
-	velocity  = Vector2.RIGHT * speed;	
-	position += velocity * delta
-
-# conexión de señal con botón
-func _on_button_jump_pressed() -> void:
-	velocity.y = jump_velocity
-	position += velocity
 
 func _physics_process(delta):
-	#agregar gravedad
-	#if not is_on_floor():
-	velocity += get_gravity() * delta
-
-	# salto con tecla o toque móvil
-	if Input.is_action_just_pressed("ui_accept"): #and is_on_floor():
-		velocity.y = jump_force	
+	# aplicar gravedad
+	velocity.y += gravity * delta
 	
-	# mover al personaje
+	# movimiento automático a la derecha
+	velocity.x = speed
+	
+	# salto con tecla o toque móvil
+	if Input.is_action_just_pressed("ui_accept"):
+		velocity.y = jump_force	
+
+	# aplicar el moviento al personaje
 	move_and_slide()
 
 """
