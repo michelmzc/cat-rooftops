@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+@export var jump_force: float = -400 
+@export var gravity: float = 900
+
 func _init():
 	print("Hello Godot World")
 
@@ -20,29 +23,27 @@ Por convención, las funciones virtuales de Godot, es decir, las funciones integ
 que puede anular para comunicarse con el motor, comienzan con un guión bajo.
 """
 func _process(delta):
-	
-	velocity  = Vector2.ZERO 
-	if Input.is_action_pressed("ui_right"):
-		_animated_sprite.play("walking right") 
-		velocity = Vector2.RIGHT * speed
-		 
-	if Input.is_action_just_released("ui_right"):
-		_animated_sprite.play("standing right")
-	
-	if Input.is_action_pressed("ui_left"):
-		_animated_sprite.play("walking left")
-		velocity = Vector2.LEFT * speed 
-	
-	if Input.is_action_just_released("ui_left"): 
-		_animated_sprite.play("standing left") 
-	
-	
+	# correr hacia la derecha
+	velocity  = Vector2.RIGHT * speed;	
 	position += velocity * delta
 
 # conexión de señal con botón
 func _on_button_jump_pressed() -> void:
 	velocity.y = jump_velocity
 	position += velocity
+
+func _physics_process(delta):
+	#agregar gravedad
+	#if not is_on_floor():
+	velocity += get_gravity() * delta
+
+	# salto con tecla o toque móvil
+	if Input.is_action_just_pressed("ui_accept"): #and is_on_floor():
+		velocity.y = jump_force	
+	
+	# mover al personaje
+	move_and_slide()
+
 """
 # Señales
 # función integrada de un nodo. El motor llama automáticamente cuando un nodo está completamente instanciado.
@@ -59,22 +60,5 @@ func _on_timer_timeout():
 	visible = not visible
 
 
-func _physics_process(delta):
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
 
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
-	move_and_slide()
 """ 

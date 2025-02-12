@@ -1,6 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://b2ept4566kn6j"]
+[gd_scene load_steps=26 format=3 uid="uid://b2ept4566kn6j"]
 
-[ext_resource type="Script" path="res://cat_main_character/cat_main_character.gd" id="1_j6i0o"]
+[ext_resource type="Script" path="res://cat_main_character/Player.gd" id="1_j6i0o"]
 [ext_resource type="Texture2D" uid="uid://q4l7r653t33t" path="res://cat_main_character/assets/Cat Sprite Sheet Inverted.png" id="2_iv0mu"]
 [ext_resource type="Texture2D" uid="uid://jjdyucv5wuk8" path="res://cat_main_character/assets/Cat Sprite Sheet.png" id="3_n1kk3"]
 
@@ -174,22 +174,28 @@ animations = [{
 }],
 "loop": true,
 "name": &"walking right",
-"speed": 4.0
+"speed": 6.0
 }]
 
-[node name="CatMainCharacter" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ca80g"]
+size = Vector2(6.51162, 5.46448)
+
+[node name="Player" type="CharacterBody2D"]
 position = Vector2(71, 78)
 scale = Vector2(8.6, 7.32)
 script = ExtResource("1_j6i0o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(2.90698, 24.3169)
-scale = Vector2(0.463299, 0.544063)
+scale = Vector2(0.405, 0.5)
 sprite_frames = SubResource("SpriteFrames_58umo")
 animation = &"walking right"
-autoplay = "standing center right"
+autoplay = "walking right"
+frame_progress = 0.510792
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.348838, 5.19126)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ca80g")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

@@ -1,11 +1,18 @@
-[gd_scene format=3 uid="uid://o7tejbrnnw26"]
+[gd_scene load_steps=2 format=3 uid="uid://o7tejbrnnw26"]
 
-[node name="main" type="Node"]
+[ext_resource type="PackedScene" uid="uid://b2ept4566kn6j" path="res://cat_main_character/player.tscn" id="1_vp7pu"]
 
-[node name="game_world" type="Node2D" parent="."]
+[node name="MainScene" type="Node"]
 
-[node name="gui" type="Control" parent="."]
+[node name="GameWorld" type="Node2D" parent="."]
+
+[node name="GUI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Player" parent="." instance=ExtResource("1_vp7pu")]
+position = Vector2(48, 248)
+
+[node name="GroundTiles" type="TileMapLayer" parent="."]
