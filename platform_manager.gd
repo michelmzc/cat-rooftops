@@ -22,7 +22,7 @@ func _process(delta):
 	
 func generate_starting_platforms():
 	for platform in range(start_platforms):
-		spawn_platform(last_platform_x, 512) 
+		spawn_platform(last_platform_x, 550) 
 		print(last_platform_x)
 		
 		

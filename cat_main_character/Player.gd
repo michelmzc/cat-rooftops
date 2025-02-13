@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-@export var speed = 150 #velocidad a la que se mueve el Character, pixeles/segundos
-@export var jump_force: float = -450 
-@export var gravity: float = 1000
+@export var speed: float = 400 #velocidad horizontal a la que se mueve el Character, pixeles/segundos
+@export var jump_force: float = -700  # fuerza del salto vertical
+@export var gravity: float = 1200 # la gravedad
 
 @onready var _animated_sprite = $AnimatedSprite2D # inclución de las animaciones
 
@@ -17,14 +17,15 @@ que puede anular para comunicarse con el motor, comienzan con un guión bajo.
 """
 
 func _physics_process(delta):
-	# aplicar gravedad
+	
+	# aplicar gravedad 	
 	velocity.y += gravity * delta
 	
 	# movimiento automático a la derecha
 	velocity.x = speed
 	
 	# salto con tecla o toque móvil
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = jump_force	
 
 	# aplicar el moviento al personaje
