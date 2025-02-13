@@ -9,7 +9,7 @@ size = Vector2(384, 128)
 atlas = ExtResource("1_tia3u")
 region = Rect2(639.67, 64.6763, 384.83, 127.159)
 
-[node name="Platform" type="Node2D"]
+[node name="Platform" type="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(192, 64)

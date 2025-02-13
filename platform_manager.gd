@@ -1,16 +1,21 @@
-extends Node2D
+extends Node
 
 @export var platform_scene: PackedScene # prefab de una plataforma
 @export var platform_spacing: float = 300.0 # distancia entre plataformas (puede variar)
 
 var last_platform_x = 400 # posición X de la última plataforma generada
 
+var player = null 
+func _ready():
+	player =  get_node("../Player") 
+	spawn_platform()
+
 func _process(delta):
-	if last_platform_x - $Player.positon.x < 500:
+	if last_platform_x - player.position.x < 500:
 		spawn_platform()
 	
 	for platform in get_children():
-		if platform.position.x < $Player.position.x - 300:
+		if platform.position.x < player.position.x - 300:
 			platform.queue_free() #elimina la plataforma que quedó atrás
 			
 func spawn_platform():
