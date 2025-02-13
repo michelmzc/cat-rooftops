@@ -1,21 +1,22 @@
 [gd_scene load_steps=4 format=3 uid="uid://qhen7o2ge3il"]
 
-[ext_resource type="Texture2D" uid="uid://bnqcpmisnxpu7" path="res://RoofTopCity TileSet.png" id="1_tia3u"]
+[ext_resource type="Texture2D" uid="uid://4xe48qaegqn" path="res://assets/CityTileSet.png" id="1_1eb4e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jrfxe"]
-size = Vector2(384, 128)
+size = Vector2(384, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rdb57"]
-atlas = ExtResource("1_tia3u")
-region = Rect2(639.67, 64.6763, 384.83, 127.159)
+atlas = ExtResource("1_1eb4e")
+region = Rect2(-0.114052, 192.272, 207.388, 31.4211)
 
 [node name="Platform" type="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(192, 64)
+position = Vector2(192, 32)
 shape = SubResource("RectangleShape2D_jrfxe")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 use_parent_material = true
-position = Vector2(192, 64)
+position = Vector2(192, 32)
+scale = Vector2(1.85507, 2.06452)
 texture = SubResource("AtlasTexture_rdb57")
