@@ -4,7 +4,7 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rdb57"]
 atlas = ExtResource("1_1eb4e")
-region = Rect2(-0.114052, 192.272, 207.388, 191.857)
+region = Rect2(-0.632771, 191.975, 208.664, 192.153)
 
 [node name="Platform" type="StaticBody2D"]
 

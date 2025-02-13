@@ -13,10 +13,10 @@ script = ExtResource("2_i7ep1")
 platform_scene = ExtResource("3_q6rsr")
 
 [node name="Platform" parent="GameWorld/Platform" instance=ExtResource("3_q6rsr")]
-position = Vector2(0, 488)
+position = Vector2(8, 512)
 
 [node name="Player" parent="GameWorld" instance=ExtResource("1_d7ktt")]
-position = Vector2(72, 256)
+position = Vector2(69, 288)
 
 [node name="GUI" type="Control" parent="."]
 layout_mode = 3
