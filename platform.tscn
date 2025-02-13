@@ -1,22 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://qhen7o2ge3il"]
+[gd_scene load_steps=3 format=3 uid="uid://qhen7o2ge3il"]
 
 [ext_resource type="Texture2D" uid="uid://4xe48qaegqn" path="res://assets/CityTileSet.png" id="1_1eb4e"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jrfxe"]
-size = Vector2(384, 64)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_rdb57"]
 atlas = ExtResource("1_1eb4e")
-region = Rect2(-0.114052, 192.272, 207.388, 31.4211)
+region = Rect2(-0.114052, 192.272, 207.388, 191.857)
 
 [node name="Platform" type="StaticBody2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(192, 32)
-shape = SubResource("RectangleShape2D_jrfxe")
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(190.4, 36)
+scale = Vector2(0.994792, 1)
+polygon = PackedVector2Array(-192, -204, 194.614, -204, 194.614, -132, 170.488, -132, 168, 196, -159.229, 196, -159.229, 196, -160, 188, -159.229, -140, -192, -140)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 use_parent_material = true
 position = Vector2(192, 32)
-scale = Vector2(1.85507, 2.06452)
+scale = Vector2(1.85507, 2.08489)
 texture = SubResource("AtlasTexture_rdb57")
