@@ -196,7 +196,7 @@ scale = Vector2(0.405, 0.5)
 sprite_frames = SubResource("SpriteFrames_58umo")
 animation = &"walking right"
 autoplay = "walking right"
-frame_progress = 0.664455
+frame_progress = 0.651589
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
