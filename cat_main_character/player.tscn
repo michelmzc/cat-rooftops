@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://jjdyucv5wuk8" path="res://cat_main_character/assets/Cat Sprite Sheet.png" id="3_n1kk3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ca80g"]
-size = Vector2(5.5814, 5.46448)
+size = Vector2(5.58139, 4.37158)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_76v85"]
 atlas = ExtResource("2_iv0mu")
@@ -181,24 +181,22 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(64, 80)
+position = Vector2(24, 19)
 scale = Vector2(8.6, 7.32)
 script = ExtResource("1_j6i0o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.86047, 37.7049)
+position = Vector2(0.930233, 0.683061)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ca80g")
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1.86046, 32.7869)
+position = Vector2(0.930233, -4.78142)
 scale = Vector2(0.405, 0.5)
 sprite_frames = SubResource("SpriteFrames_58umo")
 animation = &"walking right"
 autoplay = "walking right"
-frame_progress = 0.884434
-metadata/_edit_group_ = true
+frame_progress = 0.664455
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

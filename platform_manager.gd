@@ -4,7 +4,7 @@ extends Node
 @export var platform_spacing: float = 390.0 # distancia entre plataformas (puede variar)
 @export var start_platforms: int = 5 # número de plataformas iniciales
 
-var last_platform_x = 10 # posición X de la última plataforma generada
+var last_platform_x = -128 # posición X de la última plataforma generada
 
 var player = null 
 
@@ -22,8 +22,7 @@ func _process(delta):
 	
 func generate_starting_platforms():
 	for platform in range(start_platforms):
-		spawn_platform(last_platform_x, 550) 
-		print(last_platform_x)
+		spawn_platform(last_platform_x, 550)
 		
 		
 func spawn_platform(position_x, position_y):

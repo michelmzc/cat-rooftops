@@ -13,7 +13,7 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(190.4, 36)
 scale = Vector2(0.994792, 1)
-polygon = PackedVector2Array(-192, -204, 194.614, -204, 194.614, -132, 170.488, -132, 168, 196, -159.229, 196, -159.229, 196, -160, 188, -159.229, -140, -192, -140)
+polygon = PackedVector2Array(-191.397, -204, 194.614, -204, 194.614, -132, 170.488, -132, 168, 196, -159.229, 196, -159.229, 196, -160, 188, -159.229, -140, -192, -140)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 use_parent_material = true

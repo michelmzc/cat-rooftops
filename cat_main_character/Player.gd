@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var speed: float = 400 #velocidad horizontal a la que se mueve el Character, pixeles/segundos
 @export var jump_force: float = -700  # fuerza del salto vertical
-@export var gravity: float = 1200 # la gravedad
+@export var gravity: float = 1400 # la gravedad
 
 @onready var _animated_sprite = $AnimatedSprite2D # inclución de las animaciones
 
