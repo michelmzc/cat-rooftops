@@ -1,10 +1,12 @@
 extends CharacterBody2D
 
 @export var speed: float = 400 #velocidad horizontal a la que se mueve el Character, pixeles/segundos
-@export var jump_force: float = -500  # fuerza del salto vertical
+@export var jump_force: float = -600  # fuerza del salto vertical
 @export var gravity: float = 1800 # la gravedad
 
 @onready var _animated_sprite = $AnimatedSprite2D # inclución de las animaciones
+
+var is_jumping = false
 
 """
 Godot llamará a la función _process en cada cuadro y le pasará un argumento llamado delta, 
@@ -26,8 +28,15 @@ func _physics_process(delta):
 	
 	# salto con tecla o toque móvil
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = jump_force	
-
+		velocity.y = jump_force
+		is_jumping = true
+		_animated_sprite.play("jump")
+		
+		
+	if is_on_floor() and is_jumping:
+		_animated_sprite.play("run")
+		is_jumping = false
+	
 	# aplicar el moviento al personaje
 	move_and_slide()
 
