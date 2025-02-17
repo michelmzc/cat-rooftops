@@ -21,7 +21,8 @@ que puede anular para comunicarse con el motor, comienzan con un guión bajo.
 func _physics_process(delta):
 	
 	# aplicar gravedad 	
-	velocity.y += gravity * delta
+	if not is_on_floor():
+		velocity.y += gravity * delta
 	
 	# movimiento automático a la derecha
 	velocity.x = speed
@@ -31,14 +32,16 @@ func _physics_process(delta):
 		velocity.y = jump_force
 		is_jumping = true
 		_animated_sprite.play("jump")
-		
+	
+	move_and_slide() # aplicar movimiento on colisiones	
 		
 	if is_on_floor() and is_jumping:
 		_animated_sprite.play("run")
 		is_jumping = false
+		
 	
-	# aplicar el moviento al personaje
-	move_and_slide()
+	
+	
 
 """
 # Señales

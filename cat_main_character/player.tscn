@@ -113,7 +113,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"jump",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -209,6 +209,8 @@ animations = [{
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(24, 19)
 scale = Vector2(8.6, 7.32)
+collision_mask = 2
+platform_on_leave = 2
 script = ExtResource("1_j6i0o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -219,9 +221,9 @@ shape = SubResource("RectangleShape2D_ca80g")
 position = Vector2(0.930233, -4.78142)
 scale = Vector2(0.405, 0.5)
 sprite_frames = SubResource("SpriteFrames_58umo")
-animation = &"run"
+animation = &"jump"
 autoplay = "run"
-frame_progress = 0.170491
+frame_progress = 0.218521
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
