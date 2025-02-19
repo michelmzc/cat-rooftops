@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed: float = 400 #velocidad horizontal a la que se mueve el Character, pixeles/segundos
+@export var speed: float = 500 #velocidad horizontal a la que se mueve el Character, pixeles/segundos
 @export var jump_force: float = -600  # fuerza del salto vertical
 @export var gravity: float = 1800 # la gravedad
 
@@ -39,8 +39,6 @@ func _physics_process(delta):
 		_animated_sprite.play("run")
 		is_jumping = false
 		
-	
-	
 	
 
 """
