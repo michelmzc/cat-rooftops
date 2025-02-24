@@ -8,14 +8,14 @@ extends Node
 @export var spawn_position: Vector2 = Vector2(600,300) #posicion inicial del spawn
 @export var spawn_distance: float = 700
 
-@export var min_horizontal_gap: float = 500  # distancia mínima horizontal entre las plataformas
-@export var max_horizontal_gap: float = 550 # distancia máxima vertical entre plataformas 
+@export var min_horizontal_gap: float = 590 # distancia mínima horizontal entre las plataformas
+@export var max_horizontal_gap: float = 600 # distancia máxima vertical entre plataformas 
 
-@export var min_vertical_gap: float = 50 # distancia mínima vertical 
+@export var min_vertical_gap: float = 80  # distancia mínima vertical 
 @export var max_vertical_gap: float = 100 # distancia máxima vertical    
 
-@export var min_height: float = 64 # altura mínima de las plataformas
-@export var max_height: float = 448 # altura máxima de las plataformas
+@export var min_height: float = 0 #64 # altura mínima de las plataformas
+@export var max_height: float = 500  #448 # altura máxima de las plataformas
 
 var last_platform_x = -500 # posición X de la última plataforma generada
 var last_platform_y = 550

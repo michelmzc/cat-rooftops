@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://2vjt1ymmgnv4"]
+
+[ext_resource type="Texture2D" uid="uid://4xe48qaegqn" path="res://assets/CityTileSet.png" id="1_hnw8l"]
+
+[node name="Skyscraper Platform" type="StaticBody2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(3.9, 0)
+scale = Vector2(1, 1.032)
+polygon = PackedVector2Array(96, 0, 92.1, 310.078, -3.9, 310.078, -4.02581, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(48, 160)
+texture = ExtResource("1_hnw8l")
+region_enabled = true
+region_rect = Rect2(256, 64.0526, 96.209, 319.947)

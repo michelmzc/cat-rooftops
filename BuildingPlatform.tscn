@@ -8,7 +8,7 @@
 atlas = ExtResource("1_1eb4e")
 region = Rect2(-0.632771, 191.975, 208.664, 192.153)
 
-[node name="Platform" type="StaticBody2D"]
+[node name="Building Platform" type="StaticBody2D"]
 position = Vector2(0, 168)
 collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_mdfqc")
