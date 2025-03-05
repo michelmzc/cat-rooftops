@@ -17,8 +17,8 @@ script = ExtResource("1_hjard")
 scroll_offset = Vector2(296, 56)
 
 [node name="Sprite2D" type="Sprite2D" parent="GameWorld/ParallaxBackground/Sky"]
-position = Vector2(72, 75)
-scale = Vector2(1.25, 1.46296)
+position = Vector2(72, 72)
+scale = Vector2(1.25, 1.48148)
 texture = ExtResource("2_ih6sk")
 
 [node name="Platforms" type="Node" parent="GameWorld"]
