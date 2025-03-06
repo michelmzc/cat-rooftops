@@ -2,24 +2,22 @@
 
 [ext_resource type="PackedScene" uid="uid://b2ept4566kn6j" path="res://cat_main_character/player.tscn" id="1_d7ktt"]
 [ext_resource type="Script" path="res://main_scene.gd" id="1_hjard"]
+[ext_resource type="PackedScene" uid="uid://d1ewi68211aaa" path="res://ParallaxBackground.tscn" id="2_ego5f"]
 [ext_resource type="Script" path="res://platform_manager.gd" id="2_i7ep1"]
-[ext_resource type="Texture2D" uid="uid://d3j8yjniqrq3y" path="res://assets/city backgrounds/city 1/1.png" id="2_ih6sk"]
 [ext_resource type="PackedScene" uid="uid://qhen7o2ge3il" path="res://BuildingPlatform.tscn" id="3_q6rsr"]
 
 [node name="MainScene" type="Node"]
 script = ExtResource("1_hjard")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(360, 216)
+limit_left = -64
+limit_top = 0
+limit_bottom = 600
+
 [node name="GameWorld" type="Node2D" parent="."]
 
-[node name="ParallaxBackground" type="Node2D" parent="GameWorld"]
-
-[node name="Sky" type="Parallax2D" parent="GameWorld/ParallaxBackground"]
-scroll_offset = Vector2(296, 56)
-
-[node name="Sprite2D" type="Sprite2D" parent="GameWorld/ParallaxBackground/Sky"]
-position = Vector2(72, 72)
-scale = Vector2(1.25, 1.48148)
-texture = ExtResource("2_ih6sk")
+[node name="ParallaxBackground" parent="GameWorld" instance=ExtResource("2_ego5f")]
 
 [node name="Platforms" type="Node" parent="GameWorld"]
 script = ExtResource("2_i7ep1")
@@ -27,15 +25,3 @@ platform_scene = ExtResource("3_q6rsr")
 
 [node name="Player" parent="GameWorld" instance=ExtResource("1_d7ktt")]
 position = Vector2(-104, 352)
-
-[node name="GUI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(360, 216)
-limit_left = -64
-limit_top = 0
-limit_bottom = 600
