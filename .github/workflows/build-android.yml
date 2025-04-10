@@ -1,0 +1,38 @@
+name: Export Godot Android Build
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build Android APK
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Godot
+        uses: firebelley/setup-godot@v2
+        with:
+          godot-version: '4.2.1'
+          export-templates-version: '4.2.1'
+
+      - name: Cache Godot
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.godot
+          key: ${{ runner.os }}-godot
+
+      - name: Build Android APK
+        run: |
+          mkdir -p build
+          godot --headless --export-release "Android" build/game.apk
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: game-apk
+          path: build/game.apk
