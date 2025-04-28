@@ -73,5 +73,4 @@ func spawn_platform(position_x=0, position_y=0):
 		
 		last_platform_x = new_x
 		last_platform_y = new_y
-	print(last_platform_x," ",last_platform_y)
-		
+	#print(last_platform_x," ",last_platform_y)
