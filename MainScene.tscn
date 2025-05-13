@@ -1,10 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://o7tejbrnnw26"]
+[gd_scene load_steps=10 format=3 uid="uid://o7tejbrnnw26"]
 
 [ext_resource type="PackedScene" uid="uid://b2ept4566kn6j" path="res://cat_main_character/player.tscn" id="1_d7ktt"]
-[ext_resource type="Script" uid="uid://e8y0qxulmjw5" path="res://main_scene.gd" id="1_hjard"]
+[ext_resource type="Script" uid="uid://b7gojtlyc6kgt" path="res://main_scene.gd" id="1_hjard"]
 [ext_resource type="PackedScene" uid="uid://d1ewi68211aaa" path="res://ParallaxBackground.tscn" id="2_ego5f"]
-[ext_resource type="Script" uid="uid://bexnbyjjsw1ei" path="res://platform_manager.gd" id="2_i7ep1"]
+[ext_resource type="Script" uid="uid://kok7qn8rc536" path="res://platform_manager.gd" id="2_i7ep1"]
 [ext_resource type="PackedScene" uid="uid://qhen7o2ge3il" path="res://BuildingPlatform.tscn" id="3_q6rsr"]
+[ext_resource type="Script" uid="uid://bunoyf1pi2h5m" path="res://hud.gd" id="6_5crlr"]
+[ext_resource type="FontFile" uid="uid://ckayljft1xptr" path="res://assets/PixelifySans-VariableFont_wght.ttf" id="6_a814b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5crlr"]
+bg_color = Color(0.368627, 0.611765, 0.898039, 0.262745)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbc2u"]
+bg_color = Color(0.368627, 0.611765, 0.898039, 0.262745)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="MainScene" type="Node"]
 script = ExtResource("1_hjard")
@@ -25,3 +41,50 @@ platform_scene = ExtResource("3_q6rsr")
 
 [node name="Player" parent="GameWorld" instance=ExtResource("1_d7ktt")]
 position = Vector2(-104, 352)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("6_5crlr")
+
+[node name="UI" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 719.0
+offset_bottom = 480.0
+
+[node name="MessageLabel" type="Label" parent="HUD/UI"]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 14.0
+offset_right = 591.0
+offset_bottom = 91.0
+theme_override_fonts/font = ExtResource("6_a814b")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_5crlr")
+text = " Cat Rooftops "
+autowrap_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="HUD/UI"]
+visible = false
+layout_mode = 0
+offset_left = 323.0
+offset_top = 14.0
+offset_right = 386.0
+offset_bottom = 91.0
+theme_override_fonts/font = ExtResource("6_a814b")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_hbc2u")
+text = " 0 "
+
+[node name="StartButton" type="Button" parent="HUD/UI"]
+layout_mode = 0
+offset_left = 242.0
+offset_top = 175.0
+offset_right = 476.0
+offset_bottom = 260.0
+theme_override_fonts/font = ExtResource("6_a814b")
+theme_override_font_sizes/font_size = 60
+text = "Start"
+
+[node name="MessageTimer" type="Timer" parent="HUD/UI"]
+wait_time = 2.0
+one_shot = true
