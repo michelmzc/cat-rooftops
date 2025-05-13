@@ -88,3 +88,9 @@ text = "Start"
 [node name="MessageTimer" type="Timer" parent="HUD/UI"]
 wait_time = 2.0
 one_shot = true
+
+[node name="ScoreTimer" type="Timer" parent="HUD/UI"]
+
+[connection signal="start_game" from="HUD" to="." method="_on_hud_start_game"]
+[connection signal="pressed" from="HUD/UI/StartButton" to="HUD" method="_on_start_button_pressed"]
+[connection signal="timeout" from="HUD/UI/MessageTimer" to="HUD" method="_on_message_timer_timeout"]
