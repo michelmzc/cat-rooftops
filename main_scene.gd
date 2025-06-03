@@ -1,15 +1,13 @@
 extends Node
 
 @onready var player = $GameWorld/Player 
+@onready var platforms = $GameWorld/Platforms
 @onready var camera = $Camera2D
 
-@export var camera_offset_x: float = 300.0 # desplazamos la cámara a la izquierda
-
-  
-func _process(delta):
-	# hacer que la cámara siga al jugador solo en el eje X
-	camera.position.x = player.position.x + camera_offset_x
-
+# en un comienzo el juego esta pausado, con esta variable comienza el juego
+var game_running = false
 
 func _on_hud_start_game() -> void:
-	pass # Replace with function body.
+	game_running = true
+	player.start_game()
+	camera.runing = true

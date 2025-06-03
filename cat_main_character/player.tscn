@@ -207,7 +207,6 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(24, 19)
 scale = Vector2(8.6, 7.32)
 collision_mask = 2
 platform_on_leave = 2
@@ -222,8 +221,8 @@ position = Vector2(0.930233, -4.78142)
 scale = Vector2(0.405, 0.5)
 sprite_frames = SubResource("SpriteFrames_58umo")
 animation = &"run"
-autoplay = "run"
-frame_progress = 0.122048
+autoplay = "standing right"
+frame_progress = 0.753599
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://o7tejbrnnw26"]
+[gd_scene load_steps=11 format=3 uid="uid://o7tejbrnnw26"]
 
 [ext_resource type="PackedScene" uid="uid://b2ept4566kn6j" path="res://cat_main_character/player.tscn" id="1_d7ktt"]
 [ext_resource type="Script" uid="uid://b7gojtlyc6kgt" path="res://main_scene.gd" id="1_hjard"]
 [ext_resource type="PackedScene" uid="uid://d1ewi68211aaa" path="res://ParallaxBackground.tscn" id="2_ego5f"]
+[ext_resource type="Script" uid="uid://d1aqfdocl7atn" path="res://camera_2d.gd" id="2_hbc2u"]
 [ext_resource type="Script" uid="uid://kok7qn8rc536" path="res://platform_manager.gd" id="2_i7ep1"]
 [ext_resource type="PackedScene" uid="uid://qhen7o2ge3il" path="res://BuildingPlatform.tscn" id="3_q6rsr"]
 [ext_resource type="Script" uid="uid://bunoyf1pi2h5m" path="res://hud.gd" id="6_5crlr"]
@@ -30,6 +31,8 @@ position = Vector2(360, 216)
 limit_left = -64
 limit_top = 0
 limit_bottom = 600
+script = ExtResource("2_hbc2u")
+target_node_path = NodePath("../GameWorld/Player")
 
 [node name="GameWorld" type="Node2D" parent="."]
 
@@ -40,7 +43,7 @@ script = ExtResource("2_i7ep1")
 platform_scene = ExtResource("3_q6rsr")
 
 [node name="Player" parent="GameWorld" instance=ExtResource("1_d7ktt")]
-position = Vector2(-104, 352)
+position = Vector2(340, 359)
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource("6_5crlr")

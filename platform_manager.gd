@@ -1,8 +1,8 @@
 extends Node
-
+#@export var running: bool = false
 @export var platform_scene: PackedScene # prefab de una plataforma
 @export var platform_spacing: float = 390.0 # distancia entre plataformas (puede variar)
-@export var start_platforms: int = 3 # número de plataformas iniciales
+@export var start_platforms: int = 5 # número de plataformas iniciales
 
 # Variables para generación procedimental de plataformas
 @export var spawn_position: Vector2 = Vector2(600,300) #posicion inicial del spawn
@@ -29,7 +29,7 @@ func _ready():
 func _process(delta):
 	if player == null:
 		return # evitar errores si el jugado aún no está asignado
-	
+	 
 	var player_x = player.position.x 
 	# buscar la última plataforma de manera segura
 	var last_platform = null 
@@ -40,7 +40,7 @@ func _process(delta):
 		spawn_platform()		
 	
 	for platform in get_children():
-		if platform.position.x < player.position.x - 600:
+		if platform.position.x < player.position.x - 800:
 			platform.queue_free() #elimina la plataforma que quedó atrás
 	
 	
