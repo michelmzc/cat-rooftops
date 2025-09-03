@@ -30,18 +30,20 @@ func start_game():
 	_animated_sprite.play("run")
 	  
 func _physics_process(delta):
-	if (running):
+	if running:
+		# aceleración progresiva
 		if elapsed_time < acceleration_time:
 			elapsed_time += delta
 			# incrementa velocidad linealmente según tiempo transcurrido
 			current_speed = lerp(100, max_speed, elapsed_time / acceleration_time)
 		else: 
 			current_speed = max_speed
+			
 		# aplicar gravedad 	
 		if not is_on_floor():
 			velocity.y += gravity * delta
 		
-		# movimiento automático a la derecha
+		# movimiento horizontal automático a la derecha
 		velocity.x = current_speed
 		
 		# salto con tecla o toque móvil
@@ -52,15 +54,21 @@ func _physics_process(delta):
 		
 		move_and_slide() # aplicar movimiento on colisiones	
 		
-		#ajustar velociad de colisión
-		var t = min(elapsed_time / acceleration_time, 1)
-		_animated_sprite.speed_scale = lerp(anim_min_speed_scale, anim_max_speed_scale, t)
-			
+		# volver a correr tras el salto
 		if is_on_floor() and is_jumping:
 			_animated_sprite.play("run")
 			is_jumping = false
 	else:
+		# animación idle/pausa
 		_animated_sprite.speed_scale = 1
+
+func _process(delta):
+	if running:
+		# animación suavizada con el framerate de la pantalla
+		var t = min(elapsed_time / acceleration_time, 1.0)
+		_animated_sprite.speed_scale = lerp(anim_min_speed_scale, anim_max_speed_scale, t)
+
+
 """
 # Señales
 # función integrada de un nodo. El motor llama automáticamente cuando un nodo está completamente instanciado.
