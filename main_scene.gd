@@ -10,4 +10,4 @@ var game_running = false
 func _on_hud_start_game() -> void:
 	game_running = true
 	player.start_game()
-	camera.runing = true
+	camera.running = true
